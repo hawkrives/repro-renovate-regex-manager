@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "timezone": "America/Denver",
+  "labels": [
+    "renovate"
+  ],
+  "prConcurrentLimit": 4,
+  "reviewersSampleSize": 1,
+  "reviewersFromCodeOwners": true,
+  "commitBodyTable": true,
+  "osvVulnerabilityAlerts": true,
+  "regexManagers": [
+    {
+      "description": "Update `version:` and `_VERSION:` variables in yaml files",
+      "fileMatch": ["[^/]+\\.ya?ml$"],
+      "matchStrings": [
+        "\\s+version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
+        "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
+      ]
+    },
+  ],
+  "postUpdateOptions": [
+    "gomodTidy",
+    "gomodUpdateImportPaths"
+  ],
+  "rollbackPrs": true,
+  "extends": [
+    "github>whitesource/merge-confidence:beta",
+    "config:recommended",
+    "preview:dockerCompose",
+    "preview:dockerVersions",
+    "npm:unpublishSafe",
+    "regexManagers:dockerfileVersions",
+    "regexManagers:tfvarsVersions",
+    ":gitSignOff",
+    ":preserveSemverRanges",
+    ":semanticCommitsDisabled",
+    ":maintainLockFilesWeekly"
+  ]
+}

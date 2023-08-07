@@ -11,13 +11,17 @@
   "osvVulnerabilityAlerts": true,
   "regexManagers": [
     {
-      "description": "Update `version:` and `_VERSION:` variables in yaml files",
-      "fileMatch": ["[^/]+\\.ya?ml$"],
+      "description": [
+        "Update `version:` and `_VERSION:` variables in yaml files"
+      ],
+      "fileMatch": [
+        "[^/]+\\.ya?ml$"
+      ],
       "matchStrings": [
         "\\s+version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
         "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
       ]
-    },
+    }
   ],
   "postUpdateOptions": [
     "gomodTidy",
@@ -25,7 +29,7 @@
   ],
   "rollbackPrs": true,
   "extends": [
-    "github>whitesource/merge-confidence:beta",
+    "mergeConfidence:all-badges",
     "config:recommended",
     "preview:dockerCompose",
     "preview:dockerVersions",

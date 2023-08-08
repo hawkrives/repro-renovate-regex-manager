@@ -1,2 +1,5 @@
 ---
-POETRY_VERSION: '1.5.1'  # renovate: datasource=pypi depName=poetry
+# renovate: datasource=pypi depName=poetry
+POETRY_VERSION: '1.4.0'  
+# renovate: datasource=pypi depName=pipx
+PIPX_VERSION: '1.1.0'  

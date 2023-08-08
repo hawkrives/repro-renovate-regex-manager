@@ -5,10 +5,7 @@
     "renovate"
   ],
   "prConcurrentLimit": 4,
-  "reviewersSampleSize": 1,
-  "reviewersFromCodeOwners": true,
   "commitBodyTable": true,
-  "osvVulnerabilityAlerts": true,
   "regexManagers": [
     {
       "description": [
@@ -21,24 +18,20 @@
         "\\s+version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
         "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
       ]
+    },
+    {
+      "fileMatch": [
+        "(^|/|\\.)([Dd]ocker|[Cc]ontainer)file$",
+        "(^|/)([Dd]ocker|[Cc]ontainer)file[^/]*$"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>[^\\s]+?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\s(?:ENV|ARG) .+?_VERSION[ =]\"?(?<currentValue>.+?)\"?\\s"
+      ]
     }
   ],
-  "postUpdateOptions": [
-    "gomodTidy",
-    "gomodUpdateImportPaths"
-  ],
-  "rollbackPrs": true,
   "extends": [
-    "mergeConfidence:all-badges",
     "config:recommended",
-    "preview:dockerCompose",
-    "preview:dockerVersions",
-    "npm:unpublishSafe",
     "regexManagers:dockerfileVersions",
-    "regexManagers:tfvarsVersions",
-    ":gitSignOff",
-    ":preserveSemverRanges",
-    ":semanticCommitsDisabled",
-    ":maintainLockFilesWeekly"
+    "regexManagers:tfvarsVersions"
   ]
 }

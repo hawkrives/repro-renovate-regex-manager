@@ -31,7 +31,5 @@
   ],
   "extends": [
     "config:recommended",
-    "regexManagers:dockerfileVersions",
-    "regexManagers:tfvarsVersions"
   ]
 }

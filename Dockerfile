@@ -3,7 +3,7 @@ FROM scratch
 
 # configure pip
 # renovate: datasource=pypi depName=pip packageName=pip
-ARG PIP_VERSION="22.3.1"
+ARG PIP_VERSION="23.3.2"
 
 # and finally, configure poetry
 # renovate: datasource=pypi depName=poetry

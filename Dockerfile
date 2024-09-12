@@ -1,4 +1,4 @@
-# syntax = docker/dockerfile:1.5
+# syntax = docker/dockerfile:1.10
 FROM scratch
 
 # configure pip

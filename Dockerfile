@@ -7,4 +7,4 @@ ARG PIP_VERSION="22.3.1"
 
 # and finally, configure poetry
 # renovate: datasource=pypi depName=poetry
-ARG POETRY_VERSION="1.4.0"
+ARG POETRY_VERSION="1.8.4"
